@@ -17,7 +17,7 @@ void printLIS(vector<int> &arr, int n) {
         for(int j = 0; j<i; j++) {
             if(arr[i] > arr[j] && lis[i].size() < lis[j].size() + 1) {
                 // just like normal LIS, if arr[i] is greater and if LIS ending in j longer.
-                lis[i] = lis[j];
+                lis[i] = lis[j];    // then new LIS is lis[j] + arr[i] (which is done after loop)
             }
         }
         lis[i].push_back(arr[i]);   // last element is arr[i] in LIS ending in i.
