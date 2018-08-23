@@ -1,3 +1,6 @@
+// https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+// https://practice.geeksforgeeks.org/problems/0-1-knapsack-problem/0
+
 #include <iostream>
 #include <vector>
 #include <deque>
@@ -18,6 +21,7 @@ int knapsack(int noOfItems, int maxCapacity, vector<int> &weight, vector<int> &v
                 //max of include (i-1)th item and exclude it.
             } else {
                 dp[i][w] = dp[i-1][w];
+                //exclude (i-1)th item as its weight is too much.
             }
         }
     }
