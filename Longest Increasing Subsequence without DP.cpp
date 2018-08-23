@@ -1,5 +1,6 @@
 // https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
 // Read the article or wont understand it.
+// This is O(nlogn) while DP solution is O(n^2).
 
 #include <iostream>
 #include <vector>
