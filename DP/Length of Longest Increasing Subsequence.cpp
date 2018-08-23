@@ -9,7 +9,7 @@ using namespace std;
 int LIS(vector<int> &arr, int n) {
     vector<int> lis(n, 1);  // lis[i] holds length of LIS ending at i
     
-    
+    // lis[0] is 1.
     for(int i = 1; i<n; i++) {
         for(int j = 0; j<i; j++) {
             if(arr[j] < arr[i] && lis[i] < lis[j] + 1) {
