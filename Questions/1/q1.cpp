@@ -44,7 +44,7 @@ int main() {
 
 		for(pair<int, int> i : adj[node]) {
 			if(dist[i.first] > dist[node] + i.second) {
-				// If the distance of i.first from s is more than distance of node (i.first's parent) + weight od edge from node to i
+				// If the distance of i.first from s is more than distance of node (i.first's parent) + weight of edge from node to i
 				dist[i.first] = dist[node] + i.second;
 
 				// push i in front of queue if it has 0 weight else push it at the end
