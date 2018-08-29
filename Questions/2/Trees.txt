@@ -1,0 +1,11 @@
+https://www.interviewbit.com/problems/max-sum-path-in-binary-tree/
+
+https://www.interviewbit.com/problems/flatten-binary-tree-to-linked-list/
+
+https://www.geeksforgeeks.org/find-the-largest-subtree-in-a-tree-that-is-also-a-bst/
+
+https://www.interviewbit.com/problems/largest-distance-between-nodes-of-a-tree/
+
+https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/practice-problems/algorithm/monk-and-xor-tree/
+
+https://leetcode.com/problems/sum-of-distances-in-tree/description/
