@@ -13,7 +13,7 @@ int knapsack(int noOfItems, int maxCapacity, vector<int> &weight, vector<int> &v
     int dp[noOfItems+1][maxCapacity+1];
     
     for(int i = 0; i<=noOfItems; i++) {
-        for(int w = 0; w<=maxCapacity; w++) {
+        for(int w = 0; w<=maxCapacity; w++) {	// w is the max capacity for the current subproblem
             if(i == 0 || w == 0) {
                 dp[i][w] = 0;
             } else if(weight[i-1] <= w) {
