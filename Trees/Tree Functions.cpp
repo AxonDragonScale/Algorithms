@@ -120,8 +120,59 @@ Node *levelOrderInsertAlternative(int arr[], int n) {
 }
 
 
+// iterative InOrder Traversal
+void iterativeInOrderTraversal(Node *root) {
+	if(root == NULL) {
+		return;
+	}
+
+	stack<Node*> s;
+	Node* cur = root;
+
+	while(cur != NULL || !s.empty()) {
+		while(cur != NULL) {
+			s.push(cur);
+			cur = cur->left;
+		} 
+		
+		if(!s.empty()) {
+			cur = s.top();
+			s.pop();
+
+			cout<<cur->data<<" ";
+			cur = cur->right;
+		}
+	}
+
+	cout<<endl;
+}
 
 
+// iterative preOrder Traversal
+void  iterativePreOrderTraversal(Node *root) {
+	if(root == NULL) {
+		return;
+	}
+
+	stack<Node*> s;
+	s.push(root);
+
+	Node *cur;
+	while(!s.empty()) {
+		cur = s.top();
+		s.pop();
+
+		cout<<cur->data<<" ";
+		if(cur->left != NULL) {
+			s.push(cur->left);
+		}
+		if(cur->right != NULL) {
+			s.push(cur->right);
+		}
+	}
+
+	cout<<endl;
+}
 
 int main() {
 
