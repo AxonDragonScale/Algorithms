@@ -55,7 +55,7 @@ void leftView(Node *root) {
 }
 
 
-// can be done using DFS as well
+// can be done using DFS as well, like this
 void leftViewUtil(Node *root, int h, int &minH) {
 	if(root == NULL) {
 		return;
