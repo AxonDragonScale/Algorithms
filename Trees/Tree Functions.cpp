@@ -54,6 +54,8 @@ void levelOrderTraversal(Node *root) {
 		}
 	}
 }
+// For Reverse Level Order Traversal, push right child in queue first. And instead of printing, save the node in a stack/vector
+// and start printing from the end of the vector ( or top of stack).
 
 
 // levelOrderInsert method 1
