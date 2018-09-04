@@ -13,3 +13,8 @@ int detectloop(Node *head) {
     
     return 0;
 }
+
+
+// TODO
+// Detect and Remove Loop - Do this (understand all methods), its good.
+// https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
