@@ -1,5 +1,6 @@
 
 // https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversal-set-2/
+// https://practice.geeksforgeeks.org/problems/preorder-to-postorder/0
 
 #include <iostream>
 #include <vector>
@@ -111,3 +112,6 @@ int main() {
 	
 	return 0;
 }
+
+// Also check out
+// https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/
