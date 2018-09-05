@@ -1,4 +1,9 @@
+
 // https://practice.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream/0
+// Best Soln. - https://www.geeksforgeeks.org/first-non-repeating-character-using-one-traversal-of-string-set-2/
+// (not for stream, but can be easily modified)
+
+// Basic Soln. -
 
 #include <iostream>
 #include <vector>
