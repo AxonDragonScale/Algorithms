@@ -26,7 +26,7 @@ bool canRepresentBST(int pre[], int n) {
         
         // if pre[i] is on right of s.top()
         // till pre[i] is the next greater for s.top()
-        while(!s.empty() && s.top() < pre[i]) {
+        while(!s.empty() && pre[i] > s.top()) {
             curRoot = s.top();
             s.pop();
         }
