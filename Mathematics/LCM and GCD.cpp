@@ -65,3 +65,22 @@ void GCDExtended(int a, int b, int &x, int &y) {
 // takeaway - if 1st number is n repeated x times and 2nd is it reapeated y times, 
 // then their gcd is n repeated gcd(x,y) times
 // ex - n = 123, x = 3, y = 1 -> gcd(123123123, 123) = 123 (123 repeated gcd(1,3) = 1 times)
+
+
+
+// Find largest subset/subarray with gcd equal to 1.
+// https://www.geeksforgeeks.org/largest-subset-gcd-1/
+// trick - if there exists a subset/subarray with gcd = 1, then the complete set will have a gcd of 1
+int largestSubsetWithGcd1(vector <int> &arr) {
+	int n = arr.size();
+	int curGcd = arr[0];
+
+	for(int i = 1; i<n; i++) {
+		curGcd = __gcd(curGcd, arr[i]);
+		if(curGcd == 1) {
+			return n;
+		}
+	}
+
+	return 0;
+}

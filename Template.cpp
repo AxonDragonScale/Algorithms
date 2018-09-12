@@ -11,10 +11,10 @@
 #define ff first
 #define ss second
 
+using namespace std;
+
 using iPair = pair<int, int>;
 using vi = vector<int>;
-
-using namespace std;
 
 int main() {
 

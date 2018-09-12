@@ -35,7 +35,7 @@ int main() {
                 max = curMax;
             }
             if(curMax < 0) {	// if curMax is -ve, we just start a new subarray
-                curMax = 0;
+                curMax = 0;		// will work even if all elements are negative cause we take max(max, curMax) first
             }
         }                     
 	    cout<<max<<endl;
