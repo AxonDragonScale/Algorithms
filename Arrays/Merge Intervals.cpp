@@ -2,7 +2,7 @@
 // https://practice.geeksforgeeks.org/problems/overlapping-intervals/0
 // https://www.geeksforgeeks.org/merging-intervals/
 
-// This is O(n), inplace solution.
+// This is O(nlogn), inplace solution.
 #include <iostream>
 #include <vector>
 #include <algorithm>
