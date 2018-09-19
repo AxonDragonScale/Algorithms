@@ -2,6 +2,11 @@
 // https://www.geeksforgeeks.org/huffman-coding-greedy-algo-3/
 // https://practice.geeksforgeeks.org/problems/huffman-encoding/0
 
+// This is greedy because we assign codes with minimum length to characters that appear most frequently
+// We first make a min priority queue and push all elements into it. Then we remove the two elements with minimum 
+// frequency and make a new element with frequency as the sum of their frequencies and make them its left and right child.
+// All these internal nodes have no data, only leaf nodes have data.
+
 #include <iostream>
 #include <vector>
 #include <stack>
@@ -55,6 +60,26 @@ void printCodes(Node *root, string s) {
     printCodes(root->right, s+"1");
 }
 
+// function to decode an encoded string given a huffman tree
+string decode(Node *root, string encodedData) {
+	int n = encodedData.size();
+	string ans = "";
+
+	int i = 0;
+	while(i<n) {
+		Node *cur = root;
+		while(cur->data == '-') {	// while not a leaf node
+			if(encodedData[i++] == '0') {
+				cur = cur->left;
+			} else {
+				cur = cur->right;
+			}
+		}
+		ans = ans + cur->data;
+	}
+	return ans;
+}
+
 int main() {
 
 	int t;
@@ -74,7 +99,7 @@ int main() {
 	    while(mh.size() != 1) {
 	        Node *min1 = mh.top(); mh.pop();
 	        Node *min2 = mh.top(); mh.pop();
-	        Node *node = new Node('-', min1->freq + min2->freq);
+	        Node *node = new Node('-', min1->freq + min2->freq);	// '-' indicates internal nodes, no data
 	        node->left = min1;
 	        node->right = min2;
 	        mh.push(node);
