@@ -18,6 +18,7 @@ using namespace std;
 
 using iPair = pair<int, int>;
 using vi = vector<int>;
+using di = deque<int>;
 using lli = long long int;
 
 int main() {
