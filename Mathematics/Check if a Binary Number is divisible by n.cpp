@@ -23,7 +23,19 @@ using lli = long long int;
 
 int main() {
 
-	
+	int n, rem = 0;
+	string s;
+	cin>>s>>n;
+
+	for(char c : s) {
+		rem = (rem*2 + (c-'0'))%n;
+	}
+
+	if(rem == 0) {
+		cout<<1<<endl;
+	} else {
+		cout<<0<<endl;
+	}
 
 	return 0;
 }
