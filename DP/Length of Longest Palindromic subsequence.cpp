@@ -1,10 +1,12 @@
 
 // https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/
+// https://www.geeksforgeeks.org/longest-palindrome-subsequence-space/   --> O(n) space
 
 #include <iostream>
 #include <algorithm>
 #include <cmath>
 #include <vector>
+#include <string>
 #include <stack>
 #include <queue>
 #include <deque>
@@ -24,6 +26,7 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
+// takes O(n^2) extra space
 int lps(string &s) {
 	int n = s.size();
 	int dp[n][n];	// length of longest panlindromic subsequence from i to j
@@ -34,11 +37,11 @@ int lps(string &s) {
 
 	for(int l = 2; l <= n; l++) {	// length 1 already taken care of, so start with 2
 		for(int i = 0; i<n-l+1; i++) {	// we dont fill below the diagonal (i < j)
-			j = i + l - 1;
+			int j = i + l - 1;
 
 			if(s[i] == s[j] && l == 2) {	// if length is 2 and both characters are same
 				dp[i][j] == 2;
-			} else if(str[i] == str[j]) {	// if 1st and last letter are the same
+			} else if(s[i] == s[j]) {	// if 1st and last letter are the same
 				dp[i][j] = 2 + dp[i+1][j-1];
 			} else {
 				dp[i][j] = max(dp[i][j-1], dp[i+1][j]);
