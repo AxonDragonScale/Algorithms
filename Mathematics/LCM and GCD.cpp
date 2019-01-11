@@ -11,6 +11,19 @@ int gcd(int a, int b) {
     return gcd(b, a%b);
 }
 
+// Iterative GCD
+int gcd(int a, int b) {
+	int temp;
+
+	while(b != 0) {
+		temp = b;
+		b = a%b;
+		a = temp;
+	}
+
+	return a;
+}
+
 // its basically the product of the union of all prime factors of both.
 // C++17 has lcm(int a, int b) inbuilt
 
