@@ -1,3 +1,6 @@
+// https://www.geeksforgeeks.org/rearrange-given-array-place/
+// https://www.interviewbit.com/problems/rearrange-array/
+
 #include <iostream>
 #include <algorithm>
 #include <cmath>
