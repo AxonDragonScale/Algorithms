@@ -1,4 +1,3 @@
-// Implementation 1
 // https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
 // https://www.geeksforgeeks.org/prims-algorithm-using-priority_queue-stl/      --> Good
 // https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/
@@ -62,6 +61,7 @@ int main() {
                 int v = i.ff;
                 int wv = i.ss;
                 if (!mstSet[v] && cost[v] > wv) {
+                    // cost[v] > wv is just for optimization, cost array is not needed at all.
                     parent[v] = u;
                     cost[v] = wv;
                     minHeap.push({wv, v});
