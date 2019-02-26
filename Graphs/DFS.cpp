@@ -34,13 +34,13 @@ void DFS(deque<int> *adj, deque<bool> &visited, int v) {
 
 int main() {
     int e, n, u, v;
-    cin >> n;
+    cin >> n;  // n is the number of vertices
 
     // deque<iPair> *adj for weighted graphs
     deque<int> *adj = new deque<int>[n];
     deque<bool> visited(n, false);
 
-    cin >> e;
+    cin >> e;  // e is the number of edges
     for (int i = 0; i < e; i++) {
         cin >> u >> v;
         adj[u].push_back(v);

@@ -1,16 +1,17 @@
-#include <iostream>
 #include <algorithm>
+#include <climits>
 #include <cmath>
-#include <vector>
-#include <stack>
-#include <queue>
 #include <deque>
-#include <set>
-#include <unordered_set>
+#include <iostream>
 #include <map>
+#include <queue>
+#include <set>
+#include <stack>
 #include <unordered_map>
+#include <unordered_set>
+#include <vector>
 
-#define LN cout<<__LINE__<<endl
+#define LN cout << __LINE__ << endl
 #define ff first
 #define ss second
 
@@ -21,9 +22,4 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
-int main() {
-
-	
-
-	return 0;
-}
+int main() { return 0; }
