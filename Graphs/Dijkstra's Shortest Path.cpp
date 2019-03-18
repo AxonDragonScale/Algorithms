@@ -41,15 +41,15 @@ int main() {
 
     deque<int> dist(n, INT_MAX);
     deque<bool> visited(n, false);
-    priority_queue<iPair, deque<iPair>, greater<iPair> > pq;
+    priority_queue<iPair, deque<iPair>, greater<iPair> > minHeap;
     // stores dist from src and vertex
 
-    pq.push(make_pair(0, 0));  // the second 0 is the src, from where we want to find the shortest path
-    dist[0] = 0;               // 0 is the src, and ofcourse dist of source is 0
+    minHeap.push(make_pair(0, 0));  // the second 0 is the src, from where we want to find the shortest path
+    dist[0] = 0;                    // 0 is the src, and ofcourse dist of source is 0
 
-    while (!pq.empty()) {
-        int u = pq.top().ss;
-        pq.pop();
+    while (!minHeap.empty()) {
+        int u = minHeap.top().ss;
+        minHeap.pop();
         visited[u] = true;
 
         for (iPair i : adj[u]) {
@@ -58,7 +58,7 @@ int main() {
 
             if (!visited[v] && dist[v] > dist[u] + w) {
                 dist[v] = dist[u] + w;
-                pq.push(make_pair(dist[v], v));
+                minHeap.push(make_pair(dist[v], v));
             }
         }
     }

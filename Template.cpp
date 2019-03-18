@@ -22,4 +22,8 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
-int main() { return 0; }
+int main() {
+    // the code
+
+    return 0;
+}

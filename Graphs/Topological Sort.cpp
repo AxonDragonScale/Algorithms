@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <climits>
 #include <cmath>
 #include <deque>
 #include <iostream>
@@ -21,33 +22,42 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
-void DFS(deque<int> *adj, deque<bool> &visited, int u) {
+void topologicalSort(int u, deque<int> *adj, deque<bool> &visited, deque<int> &s) {
     visited[u] = true;
-    cout << u << " ";
 
-    for (int v : adj[u]) {
-        if (!visited[v]) {
-            DFS(adj, visited, v);
+    for (int i : adj[u]) {
+        if (!visited[i]) {
+            topologicalSort(i, adj, visited, s);
         }
     }
+
+    s.push_back(u);
 }
 
 int main() {
-    int e, n, u, v;
-    cin >> n;  // n is the number of vertices
+    int n, e, u, v;
 
-    // deque<iPair> *adj for weighted graphs
+    cin >> n >> e;
     deque<int> *adj = new deque<int>[n];
-    deque<bool> visited(n, false);
-
-    cin >> e;  // e is the number of edges
     for (int i = 0; i < e; i++) {
         cin >> u >> v;
         adj[u].push_back(v);
-        adj[v].push_back(u);  // remove for directed graphs
     }
 
-    DFS(adj, visited, 0);  // here 0 is the node where DFS starts
+    deque<bool> visited(n, false);
+    deque<int> s;  // stack
+
+    for (int i = 0; i < n; i++) {
+        if (!visited[i]) {
+            topologicalSort(i, adj, visited, s);
+        }
+    }
+
+    // print the result
+    while (!s.empty()) {
+        cout << s.back() << " ";
+        s.pop_back();
+    }
     cout << endl;
 
     return 0;
