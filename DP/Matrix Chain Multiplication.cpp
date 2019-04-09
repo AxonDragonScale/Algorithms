@@ -47,7 +47,7 @@ int main() {
             // dp[i][j] = INT_MAX;
 
             for (int k = i; k < j; k++) {
-                int q = dp[i][k] + dp[k + 1][j] + p[i - 1] * p[k] * p[j];
+                int q = dp[i][k] + dp[k + 1][j] + p[i - 1] * p[k] * p[j];  // q is the cost for i..j
                 dp[i][j] = min(dp[i][j], q);
             }
         }
