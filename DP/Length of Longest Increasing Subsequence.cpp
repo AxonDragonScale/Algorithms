@@ -12,7 +12,7 @@ int LIS(vector<int> &arr, int n) {
 
     for (int i = 1; i < n; i++) {
         for (int j = 0; j < i; j++) {
-            if (arr[j] < arr[i] && lis[i] < lis[j] + 1) {
+            if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
                 lis[i] = lis[j] + 1;  // basically doing max(lis[i], lis[j] + 1)
             }
         }
