@@ -1,0 +1,1 @@
+// Given an n*n chessboard, what is the max no. of coins you can place such that any 4 coins do not form a rectangle

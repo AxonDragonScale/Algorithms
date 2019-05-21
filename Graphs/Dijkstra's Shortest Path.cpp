@@ -1,6 +1,8 @@
 // https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-using-priority_queue-stl/
 // https://ide.geeksforgeeks.org/Do157gzJig
 
+// Djiskstra only works for positive weights
+
 #include <algorithm>
 #include <climits>
 #include <cmath>

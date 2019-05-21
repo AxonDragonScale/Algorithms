@@ -7,3 +7,15 @@
 7. Largest Element in BST <= n
 8. Kth smallest Element in BST (kth Element of Inorder traversal)
 9. Inorder successor and predecessor
+10. Job sequencing using Disjoint set
+11. Given a sorted array and a number k, check if there are 3 elements with sum k.
+12. Max Non-Adjacent coins in Tree -> Re-implement
+13. Minimum Vertex Cover 
+16. Min Range Radar -> check
+17. No coins in a rectangle
+
+
+Done. All O(1) operations array
+Done. LRU Cache
+Done. Given a sorted array, count the number of triangles that can be made using any 3 elements in the array as sides. 
+Done. Bipartite
