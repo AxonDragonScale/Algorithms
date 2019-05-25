@@ -64,6 +64,8 @@ int main() {
         }
     }
 
+    // We can remove slots array and just use sequence array to check if that time slot is filled
+
     cout << "Job Sequence with profit " << totalProfit << " : ";
     for (int i = 0; i < sequence.size(); i++) {
         cout << sequence[i] << " ";

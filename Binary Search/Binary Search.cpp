@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <climits>
 #include <cmath>
 #include <deque>
 #include <iostream>
@@ -7,7 +6,6 @@
 #include <queue>
 #include <set>
 #include <stack>
-#include <string>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,7 +22,29 @@ using di = deque<int>;
 using lli = long long int;
 
 int main() {
-    // the code
+    int n, k;
+    cin >> n >> k;
+
+    vi arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int l = 0, r = n - 1;
+    while (l <= r) {
+        int mid = (l + r) / 2;
+
+        if (arr[mid] == k) {
+            cout << mid << endl;
+            return 0;
+        } else if (arr[mid] < k) {
+            l = mid + 1;
+        } else {
+            r = mid - 1;
+        }
+    }
+
+    cout << -1 << endl;
 
     return 0;
 }

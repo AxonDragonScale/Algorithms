@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <climits>
 #include <cmath>
 #include <deque>
 #include <iostream>
@@ -23,8 +22,13 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
+string printLPS(string &s) {}
+
 int main() {
-    // the code
+    string s;
+    cin >> s;
+
+    cout << printLPS(s) << endl;
 
     return 0;
 }
