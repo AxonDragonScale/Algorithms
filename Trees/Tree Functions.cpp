@@ -119,7 +119,9 @@ Node *levelOrderInsertAlternative(int arr[], int n) {
     return root;
 }
 
-// iterative InOrder Traversal
+// iterative InOrder Traversal -
+// https://www.interviewbit.com/problems/inorder-traversal/
+// https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
 void iterativeInOrderTraversal(Node *root) {
     if (root == NULL) {
         return;
@@ -128,7 +130,7 @@ void iterativeInOrderTraversal(Node *root) {
     stack<Node *> s;
     Node *cur = root;
 
-    while (cur != NULL || !s.empty()) {
+    while (!s.empty() || cur != NULL) {
         while (cur != NULL) {
             s.push(cur);
             cur = cur->left;
@@ -138,7 +140,7 @@ void iterativeInOrderTraversal(Node *root) {
             cur = s.top();
             s.pop();
 
-            cout << cur->data << " ";
+            cout << cur->data << " ";  // or push to ans array
             cur = cur->right;
         }
     }
@@ -146,7 +148,9 @@ void iterativeInOrderTraversal(Node *root) {
     cout << endl;
 }
 
-// iterative preOrder Traversal
+// Iterative PreOrder Traversal
+// https://www.interviewbit.com/problems/preorder-traversal/
+// https://www.geeksforgeeks.org/iterative-preorder-traversal/
 void iterativePreOrderTraversal(Node *root) {
     if (root == NULL) {
         return;
@@ -155,20 +159,45 @@ void iterativePreOrderTraversal(Node *root) {
     stack<Node *> s;
     s.push(root);
 
-    Node *cur;
+    Node *cur = root;
     while (!s.empty()) {
         cur = s.top();
         s.pop();
 
         cout << cur->data << " ";
-        if (cur->left != NULL) {
-            s.push(cur->left);
-        }
-        if (cur->right != NULL) {
-            s.push(cur->right);
-        }
+
+        if (cur->right) s.push(cur->right);
+        if (cur->left) s.push(cur->left);
     }
 
+    cout << endl;
+}
+
+// Iterative PostOrder Traversal
+// https://www.interviewbit.com/problems/postorder-traversal/
+void iterativePostOrderTraversal(Node *root) {
+    if (root == NULL) {
+        return;
+    }
+
+    vector<int> ans;
+    stack<Node *> s;
+    s.push(root);
+
+    Node *cur = root;
+    while (!s.empty()) {
+        cur = s.top();
+        s.pop();
+
+        ans.push_back(cur->data);
+        if (cur->left) s.push(cur->left);
+        if (cur->right) s.push(cur->right);
+    }
+
+    reverse(ans.begin(), ans.end());  // return ans if you want to
+    for (int i : ans) {               // just iterate backwards if you dont need to store ans
+        cout << i << " ";
+    }
     cout << endl;
 }
 
@@ -180,6 +209,8 @@ int main() {
     root->left->right = new Node(5);
     root->right->left = new Node(6);
     root->right->right = new Node(7);
+
+    iterativePreOrderTraversal(root);
 
     return 0;
 }

@@ -1,30 +1,71 @@
 // https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
 // https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence/0
+// https://www.interviewbit.com/problems/longest-increasing-subsequence/
 
+#include <algorithm>
+#include <climits>
+#include <cmath>
+#include <deque>
 #include <iostream>
+#include <map>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
+
+#define LN cout << __LINE__ << endl
+#define ff first
+#define ss second
 
 using namespace std;
 
+using iPair = pair<int, int>;
+using vi = vector<int>;
+using di = deque<int>;
+using lli = long long int;
+
 int LIS(vector<int> &arr, int n) {
-    vector<int> lis(n);  // lis[i] holds length of LIS ending at i
-    lis[0] = 1;          // lis[0] is 1.
+    vector<int> lis(n, 1);  // lis[i] holds length of LIS ending at i
+    // LIS is atleast 1 for any sequence
 
     for (int i = 1; i < n; i++) {
         for (int j = 0; j < i; j++) {
-            if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
-                lis[i] = lis[j] + 1;  // basically doing max(lis[i], lis[j] + 1)
+            if (arr[i] > arr[j]) {
+                lis[i] = max(lis[i], lis[j] + 1);  // if adding i after lis at j gives longer
             }
         }
     }
 
-    int max = 0;
-    for (int i = 0; i < n; i++) {
-        if (max < lis[i]) max = lis[i];
+    int maxLen = 0;
+    for (int i : lis) {
+        maxLen = max(maxLen, i);
     }
 
-    return max;
+    return maxLen;
 }
+
+// int LIS(vector<int> &arr, int n) {
+//     vector<int> lis(n, 1);  // lis[i] holds length of LIS ending at i
+//     lis[0] = 1;             // lis[0] is 1.    // not needed as lis for all i is atleast 1
+
+//     for (int i = 1; i < n; i++) {
+//         for (int j = 0; j < i; j++) {
+//             if (arr[i] > arr[j] && lis[i] < lis[j] + 1) {
+//                 lis[i] = lis[j] + 1;  // basically doing max(lis[i], lis[j] + 1)
+//             }
+//         }
+//     }
+
+//     int max = 0;
+//     for (int i = 0; i < n; i++) {
+//         if (max < lis[i]) max = lis[i];
+//     }
+
+//     return max;
+// }
 
 int main() {
     int t, n;

@@ -1,5 +1,6 @@
 // https://www.interviewbit.com/problems/subset/
 // https://www.geeksforgeeks.org/backtracking-to-find-all-subsets/
+// https://www.geeksforgeeks.org/power-set/
 
 // method 1 - subsets in lexicographic order
 

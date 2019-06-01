@@ -91,6 +91,42 @@ bool isMirror(Node *root1, Node *root2) {
     }
 }
 
+// Check if a tree is Symmetric (is its own Mirror)
+// https://www.interviewbit.com/problems/symmetric-binary-tree/
+bool isSymmetricHelper(Node *root1, Node *root2) {
+    if (!root1 || !root2) {
+        if (root1 || root2)
+            return false;
+        else
+            return true;
+    }
+
+    if (root1->data == root2->data) {
+        return isSymmetricHelper(root1->left, root2->right) && isSymmetricHelper(root1->right, root2->left);
+    } else {
+        return false;
+    }
+}
+
+bool isSymmetric(Node *root) {
+    if (root == NULL) {
+        return true;
+    }
+
+    return isSymmetricHelper(root->left, root->right);
+}
+
+// https://www.interviewbit.com/problems/invert-the-binary-tree/
+Node *invertTree(Node *root) {
+    if (root == NULL) return NULL;
+
+    swap(root->left, root->right);
+    invertTree(root->left);
+    invertTree(root->right);
+
+    return root;
+}
+
 // Check if the tree is balanced
 bool isBalanced(Node *root) {
     if (root == NULL) {

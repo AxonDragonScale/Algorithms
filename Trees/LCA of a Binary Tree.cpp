@@ -1,5 +1,10 @@
 // https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
 
+// Also see previous submission (your own not interviewbit) here ->
+// https://www.interviewbit.com/problems/least-common-ancestor/
+
+// Also do LCA using stored path
+
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -65,5 +70,6 @@ int main() {
     root->right->right = new Node(15);
 
     cout << LCA(root, 11, 15)->data << endl;
+
     return 0;
 }

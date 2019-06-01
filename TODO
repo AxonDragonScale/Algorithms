@@ -1,5 +1,4 @@
 1. Diagonal View of a Binary Tree
-2. Bottom View of a Binary Tree
 3. BST Delete
 4. LCA of Binary Tree (Path implementation + Parent pointer implementation)
 5. LCA in n-ary Tree
@@ -11,11 +10,17 @@
 12. Max Non-Adjacent coins in Tree -> Re-implement
 16. Min Range Radar -> check
 17. No coins in a rectangle
+18. Print Longest Palindromic Subsequence
+19. Modular Exponentiation -> properly , tricks, etc
+20. Trie
+21. Segment Tree / Interval Tree
+22. Order of People Heights - Questions
 
-
+IMP. Ways to Make Heap with n Elements
+Done. Bottom View of a Binary Tree
 Done. Job sequencing using Disjoint set
 Done. Minimum Vertex Cover in a Tree
 Done. All O(1) operations array
-Done. LRU Cache
+IMP. LRU Cache
 Done. Given a sorted array, count the number of triangles that can be made using any 3 elements in the array as sides. 
 Done. Bipartite Graph check
