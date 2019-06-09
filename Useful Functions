@@ -1,0 +1,10 @@
+1. stoi and related - string to int -> http://www.cplusplus.com/reference/string/
+to_string(int val)  ->  convert int to string
+
+2. isdigit(c), isalpha(c), isalnum(c), isupper(c), islower(c), etc -> http://www.cplusplus.com/reference/cctype/
+
+3. rand() returns a number between 0 and 32767
+
+4. *max_element(arr.begin(), arr.end()) and *min_element(arr.begin(), arr.end()) (* because they return iterator) -> <algorithm>
+
+5. If there is %, big multiplication or a chance of overflow then just use lli instead of int.

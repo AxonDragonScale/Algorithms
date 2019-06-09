@@ -57,10 +57,7 @@ struct DSU {
     }
 
     void connect(int a, int b) {  // usually called union (union is a keyword in c++)
-        int aRoot = root(a);
-        int bRoot = root(b);
-
-        parent[bRoot] = aRoot;
+        parent[root(b)] = root(a);
     }
 };
 

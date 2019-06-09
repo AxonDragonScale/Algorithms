@@ -1,5 +1,5 @@
-
 // https://www.geeksforgeeks.org/word-break-problem-dp-32/
+// https://www.geeksforgeeks.org/word-break-problem-trie-solution/ -> TODO
 
 #include <algorithm>
 #include <cmath>
@@ -24,39 +24,60 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
-bool isWordInDictionary(unordered_set<string> dictionary, string s) {
-    if (dictionary.find(s) != dictionary.end()) {
-        return true;
+bool isWordInDict(unordered_set<string> dictionary, string s) { return dictionary.find(s) != dictionary.end(); }
+
+// Method 1 - Optimized (BEST)
+int wordBreak(unordered_set<string> &dict, string &s) {
+    int n = s.size();
+    if (n == 0) return 1;
+
+    vector<bool> dp(n + 1, false);
+    // dp[i] will be true if s[0..i] can be segmented into dictionary words
+
+    vector<int> trueIdx;  // stores indices for which dp[i] is true
+    trueIdx.push_back(-1);
+
+    for (int i = 0; i < n; i++) {
+        bool flag = false;
+        for (int j = trueIdx.size() - 1; j >= 0; j--) {
+            if (isWordInDict(dict, s.substr(trueIdx[j] + 1, i - trueIdx[j]))) {
+                flag = true;
+                break;
+            }
+        }
+
+        if (flag) {
+            dp[i] = true;
+            trueIdx.push_back(i);
+        }
     }
 
-    return false;
+    return dp[n - 1];
 }
 
-int wordBreak(unordered_set<string> &dictionary, string &s) {
-    int size = s.size();
-    if (size == 0) return 1;
+// Method 2 - Less optimized (Easier to understand)
+int wordBreak(unordered_set<string> &dict, string &s) {
+    int n = s.size();
+    if (n == 0) return 1;
 
-    vector<bool> dp(size + 1, false);
-    // dp[i] is true if s[0..i] can be broken into words in the dictionary
+    vector<bool> dp(n + 1, false);
+    // dp[i] is true if s[0..i-1] can be broken into words in the dictionary
 
-    for (int i = 1; i <= size; i++) {
-        // check if word starting at 0 and of length i is in dictionary
-        if (dp[i] == false && isWordInDictionary(dictionary, s.substr(0, i))) {
+    for (int i = 1; i <= n; i++) {
+        // check if word starting at 0 and of length i is in dict
+        if (dp[i] == false && isWordInDict(dict, s.substr(0, i))) {
             dp[i] = true;
         }
 
-        if (dp[i] == true && i == size) {
+        if (dp[i] == true && i == n) {
             return 1;
         } else if (dp[i] == true) {
-            for (int j = i + 1; j <= size; j++) {
-                if (dp[j] == false && isWordInDictionary(dictionary, s.substr(i, j - i))) {
+            for (int j = i + 1; j <= n; j++) {
+                if (dp[j] == false && isWordInDict(dict, s.substr(i, j - i))) {
                     dp[j] = true;
                 }
-
-                if (j == size && dp[j] == true) {
-                    return 1;
-                }
             }
+            if (dp[n] == true) return 1;
         }
     }
 
