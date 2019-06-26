@@ -21,6 +21,25 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
+// DP Version
+int main() {
+    int x;
+    cin >> x;
+
+    vector<vector<int>> C(x + 1, vector<int>(x + 1));
+
+    C[0][0] = 1;
+    for (int n = 1; n <= x; n++) {
+        C[n][0] = 1;
+        C[n][n] = 1;
+        for (int r = 1; r < n; r++) {
+            C[n][r] = C[n - 1][r - 1] + C[n - 1][r];
+        }
+    }
+
+    // use as needed
+}
+
 // first mulitply all then divide to avoid decimal errors
 lli binomialCoeff(int n, int k) {
     lli res = 1;

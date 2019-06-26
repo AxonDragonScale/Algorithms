@@ -107,4 +107,24 @@ int main() {
     return 0;
 }
 
-// TODO : try minheap method
+// MinHeap Method
+// https://www.interviewbit.com/problems/merge-k-sorted-lists/
+Node *mergeKLists(vector<Node *> &v) {
+    Node *temp = new Node(-1);
+    Node *ans = temp;
+
+    priority_queue<pair<int, Node *>, vector<pair<int, Node *>>, greater<pair<int, Node *>>> maxHeap;
+    for (Node *i : v) {
+        if (i) maxHeap.push({i->data, i});
+    }
+
+    while (!maxHeap.empty()) {
+        temp->next = maxHeap.top().second;
+        maxHeap.pop();
+        temp = temp->next;
+
+        if (temp->next) maxHeap.push({temp->next->data, temp->next});
+    }
+
+    return ans->next;
+}

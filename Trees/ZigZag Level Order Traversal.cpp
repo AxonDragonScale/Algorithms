@@ -15,6 +15,7 @@ vector<vector<int>> zigzagLevelOrder(Node *root) {
         while (!ltr.empty()) {
             temp = ltr.top();
             ltr.pop();
+
             cur.push_back(temp->val);
             if (temp->left) rtl.push(temp->left);
             if (temp->right) rtl.push(temp->right);
@@ -25,6 +26,7 @@ vector<vector<int>> zigzagLevelOrder(Node *root) {
         while (!rtl.empty()) {
             temp = rtl.top();
             rtl.pop();
+
             cur.push_back(temp->val);
             if (temp->right) ltr.push(temp->right);
             if (temp->left) ltr.push(temp->left);

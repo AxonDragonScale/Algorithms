@@ -57,7 +57,13 @@ int main() {
     }
 
     deque<bool> visited(V, false);
-    cout << isCyclic(g, visited, 0, -1) << endl;
+    for (int i = 0; i < V; i++) {
+        if (!visited[i] && isCyclic(g, visited, i, -1)) {  // many components, check again for unvisited vertices
+            cout << "Cycle Detected." << endl;
+            return 0;
+        }
+    }
 
+    cout << "No Cycle Detected." << endl;
     return 0;
 }

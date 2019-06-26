@@ -31,6 +31,7 @@ struct Node {
     Node *right;
 };
 
+// Next Greater Number
 Node *successor(Node *root, int k) {
     Node *succ = NULL;
 

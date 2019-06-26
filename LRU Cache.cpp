@@ -24,46 +24,41 @@ using lli = long long int;
 
 class Cache {
    private:
-    unordered_map<int, int> data_map;                  // key, value - key is identifier of the data
-    list<int> lru_list;                                // key
-    unordered_map<int, list<int>::iterator> list_map;  // key, iterator
+    unordered_map<int, int> cache;                     // key, value - key is identifier of the data
+    list<int> lruList;                                 // keys - front will be Most recently used, and back is lru
+    unordered_map<int, list<int>::iterator> listIter;  // key, iterator
     int capacity;
 
    public:
     Cache(int capacity) : capacity(capacity) {}
 
     int get(int key) {
-        if (data_map.find(key) == data_map.end()) {
-            return -1;  // key not found
+        if (cache.find(key) != cache.end()) {
+            auto it = listIter[key];  // remove key from list and add it to front
+            lruList.erase(it);
+            lruList.push_front(key);
+            listIter[key] = lruList.begin();
+            return cache[key];
         }
-
-        justUsed(key);
-        return data_map[key];
+        return -1;
     }
 
     void put(int key, int value) {
-        if (data_map.find(key) == data_map.end()) {  // Key doesnt exist in cache
-            data_map[key] = value;
-            lru_list.push_front(key);
-            list_map[key] = lru_list.begin();
-
-            if (lru_list.size() > capacity) {
-                int key = lru_list.back();
-                lru_list.pop_back();
-                data_map.erase(key);
-                list_map.erase(key);
-            }
-        } else {
-            data_map[key] = value;
-            justUsed(key);
+        if (cache.find(key) != cache.end()) {  // key already exists (just update and put it in front of lruList)
+            auto it = listIter[key];
+            lruList.erase(it);
         }
-    }
 
-    void justUsed(int key) {
-        list<int>::iterator it = list_map[key];
-        lru_list.erase(it);
-        lru_list.push_front(key);
-        list_map[key] = lru_list.begin();
+        cache[key] = value;
+        lruList.push_front(key);
+        listIter[key] = lruList.begin();
+
+        if (cache.size() > capacity) {
+            int lruKey = lruList.back();
+            lruList.pop_back();
+            listIter.erase(lruKey);
+            cache.erase(lruKey);
+        }
     }
 };
 

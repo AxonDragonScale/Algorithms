@@ -1,6 +1,7 @@
 // Given a sorted array, count the number of triangles that can be made using any 3 elements in the array as sides.
 
 // https://www.geeksforgeeks.org/find-number-of-triangles-possible/ -> similar
+// https://www.interviewbit.com/problems/counting-triangles/
 
 #include <algorithm>
 #include <climits>

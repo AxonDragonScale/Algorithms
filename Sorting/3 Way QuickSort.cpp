@@ -23,9 +23,41 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
-int partition(deque<int> &arr, int l, int r) {}
+void partition(deque<int> &arr, int l, int r, int &i, int &j) {
+    if (l + 1 >= r) {
+        if (arr[l] > arr[r]) swap(arr[l], arr[r]);
+        i = l;
+        j = r;
+        return;
+    }
 
-void quickSort(deque<int> &arr, int l, int r) {}
+    int pivot = l + rand() % (r - l + 1);
+    swap(arr[pivot], arr[r]);
+
+    int mid = l;
+    pivot = arr[r];
+    while (mid <= r) {
+        if (arr[mid] < pivot)
+            swap(arr[l++], arr[mid++]);  // move to left and increment left
+        else if (arr[mid] == pivot)
+            mid++;
+        else if (arr[mid] > pivot)
+            swap(arr[mid], arr[r--]);  // dont increment mid since r needs to be processed
+    }
+
+    i = l - 1;
+    j = mid;
+}
+
+void quickSort(deque<int> &arr, int l, int r) {
+    if (l >= r) return;
+
+    int i, j;
+    partition(arr, l, r, i, j);
+
+    quickSort(arr, l, i);
+    quickSort(arr, j, r);
+}
 
 int main() {
     int n;

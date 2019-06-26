@@ -24,16 +24,44 @@
 29. https://www.interviewbit.com/problems/maximum-consecutive-gap/ -> Hard
 30. https://www.interviewbit.com/problems/maxspprod/
 31. Numbers of length n and value less than k -> https://www.interviewbit.com/problems/numbers-of-length-n-and-value-less-than-k/
+32. Median in 2 sorted arrays.
+33. KMP
+34. Divide Integers (Bit Manipulation)
+35. InterviewBit Stacks and Queues section again and write in notebook
+36. Kth permutation (backtracking) -> didn't understand
+37. Fraction to Decimal string (Hashing)
+38. Heap implementation
+39. Populate Next Pointers in Tree
+40. Counting Sort
+41. Seats (Greedy - InterviewBit)
+42. https://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/
+43. Rod Cutting I and II
+44. Smallest Multiple of n with only 0s and 1s -> Graphs 
+45. Unbounded Knapsack
+46. QuickSort for Linked List
+47. KMP
+50. Bidirectional Search (Simultaneous BFS from 2 nodes till collision)
+51. Find order of tasks/project/courses given their dependencies
 
- 
+IMP. Word Ladder I and II   
+IMP. Number of BSTs of Size n with Height h
+IMP. Scramble String
+IMP. Match RegEx with String 1 and 2
+IMP. Integer Repeat more than n%3 times (Arrays)
+IMP. 2 Sum - Pair with Sum k (BST)
+IMP. Iterative Inorder Traversal 
+IMP. N Max Pair Elements (Heaps)
+IMP. Trapping Rain Water
+IMP. Max in Sliding Window of Size k
+IMP. Largest rectangle in Histogram
 IMP. Lexicographical Rank of String
 IMP. Lexicographical Rank of String with duplicates
-
 IMP. Ways to Make Heap with n Elements
+IMP. LRU Cache
+
 Done. Bottom View of a Binary Tree
 Done. Job sequencing using Disjoint set
 Done. Minimum Vertex Cover in a Tree
 Done. All O(1) operations array
-IMP. LRU Cache
 Done. Given a sorted array, count the number of triangles that can be made using any 3 elements in the array as sides. 
 Done. Bipartite Graph check

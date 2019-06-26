@@ -36,21 +36,13 @@ void levelOrderTraversal(Node *root) {
         cur = q.front();
         q.pop();
 
-        if (cur == NULL) {
+        if (cur) {
+            cout << cur->data << " ";
+            if (cur->left) q.push(cur->left);
+            if (cur->right != NULL) q.push(cur->right);
+        } else {  // cur is NULL, new Level after this
             cout << endl;
-            if (!q.empty()) {  // Dont push a NULL after the last level NULL
-                q.push(NULL);
-            }
-            continue;
-        }
-
-        cout << cur->data << " ";
-
-        if (cur->left != NULL) {
-            q.push(cur->left);
-        }
-        if (cur->right != NULL) {
-            q.push(cur->right);
+            if (!q.empty()) q.push(NULL);  // Dont push a NULL after the last level NULL
         }
     }
 }
@@ -189,7 +181,7 @@ void iterativePostOrderTraversal(Node *root) {
         cur = s.top();
         s.pop();
 
-        ans.push_back(cur->data);
+        ans.push_back(cur->data);  // or use a deque and do push_front so you dont have to reverse later
         if (cur->left) s.push(cur->left);
         if (cur->right) s.push(cur->right);
     }

@@ -35,7 +35,7 @@ int main() {
     while (l <= r) {
         int mid = (l + r) / 2;
 
-        if (mid <= n / mid) {
+        if (mid <= n / mid) {  // mid*mid <= n does not work?
             l = mid + 1;
             res = mid;
         } else {

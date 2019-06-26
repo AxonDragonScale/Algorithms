@@ -8,3 +8,17 @@ to_string(int val)  ->  convert int to string
 4. *max_element(arr.begin(), arr.end()) and *min_element(arr.begin(), arr.end()) (* because they return iterator) -> <algorithm>
 
 5. If there is %, big multiplication or a chance of overflow then just use lli instead of int.
+
+6. upper_bound(arr.begin(), arr.end(), k) -> returns an iterator to first element greater than k, if none then returns arr.end()
+   lower_bound(arr.begin(), arr.end(), k) -> returns an iterator to first element which is not less than k, if none then returns arr.end()
+
+7. binary_search(arr.begin(), arr.end(), k) -> returns true if k is in arr, false otherwise
+
+8. find(arr.begin(), arr.end(), k) -> returns iterator to first element that equals k
+
+9. str.find(string or char, startIdx)  -> http://www.cplusplus.com/reference/string/string/find/
+   See Hotel Reviews question in questions folder for example
+
+10. string(size, char) -> make a string of 'char' repeated size times
+
+11. vectors can be compared (lexicographic comparison - for ex. v1 < v2 will give true if v1 is lexicographically smaller)

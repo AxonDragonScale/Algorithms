@@ -1,1 +1,10 @@
 1. x & -x yields the least significant/rightmost 1-bit in x.
+2. n = n | (1 << i)  -> set the ith bit
+3. n = n & ~(1 << i) -> clear the ith bit
+4. bit = (n >> i) & 1 -> get the ith bit
+5. n = n ^ (1 << i)  -> toggle the ith bit
+
+6. useful info - https://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit/50691
+   (has extra not just what title says)
+
+7. To check if only 1 bit is set to 1 in the number use -> n & (n-1) == 0

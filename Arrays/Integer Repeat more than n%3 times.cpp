@@ -1,6 +1,9 @@
 // https://www.interviewbit.com/problems/n3-repeat-number/
 // https://www.geeksforgeeks.org/n3-repeated-number-array-o1-space/
 
+// https://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/  ->
+// More General Version TODO
+
 int Solution::repeatedNumber(const vector<int> &arr) {
     int n = arr.size();
 

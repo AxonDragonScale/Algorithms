@@ -42,7 +42,7 @@ int power(int a, int b) {
     if (b % 2 == 0) {
         return power((lli)a * (lli)a, b / 2) % mod;
     } else {
-        return (power((lli)a * (lli)b, (b - 1) / 2) * a) % mod;
+        return (power((lli)a * (lli)a, (b - 1) / 2) * a) % mod;
     }
 }
 

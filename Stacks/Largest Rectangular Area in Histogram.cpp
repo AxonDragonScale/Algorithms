@@ -53,6 +53,7 @@ int main() {
 
                 areaWithTop = hist[topIndex] * (s.empty() ? i : (i - s.top() - 1));
                 maxArea = max(maxArea, areaWithTop);
+                // dont increment i
             }
         }
 

@@ -1,5 +1,8 @@
 // https://www.interviewbit.com/problems/n-digit-numbers-with-digit-sum-s-/
 
+// Find out the number of N digit numbers, whose digits on being added equals to a given number S. Note that a valid
+// number starts from digits 1-9 except the number 0 itself. i.e. leading zeroes are not allowed.
+
 int util(int n, int sum, bool f, vector<vector<int>> &dp) {
     if (n == 1) {
         if (sum >= 0 && sum <= 9)

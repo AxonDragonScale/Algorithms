@@ -56,6 +56,14 @@ int depth(Node *root, int key) {
     return -1;
 }
 
+// minDepth - The path has to end on a leaf node
+int minDepth(Node *root) {
+    if (root == NULL) return 100000000;         // not INT_MAX as adding to it will give overflow
+    if (!root->left && !root->right) return 1;  // leaf
+
+    return 1 + min(minDepth(root->left), minDepth(root->right));
+}
+
 // Find the number of leaf nodes in the tree
 int noOfLeafNodes(Node *root) {
     if (root == NULL) {
@@ -77,6 +85,8 @@ bool isIdentical(Node *root1, Node *root2) {
         return false;
     } else if (root1->data == root2->data) {
         return isIdentical(root1->left, root2->left) && isIdentical(root1->right, root2->right);
+    } else {
+        return false;
     }
 }
 
@@ -87,12 +97,13 @@ bool isMirror(Node *root1, Node *root2) {
     } else if (root1 == NULL && root2 != NULL || root1 != NULL && root2 == NULL) {
         return false;
     } else if (root1->data == root2->data) {
-        return isIdentical(root1->left, root2->right) && isIdentical(root1->right, root2->left);
+        return isMirror(root1->left, root2->right) && isMirror(root1->right, root2->left);
     }
 }
 
 // Check if a tree is Symmetric (is its own Mirror)
 // https://www.interviewbit.com/problems/symmetric-binary-tree/
+// Basically, check if left and right subtrees are mirrors of each other
 bool isSymmetricHelper(Node *root1, Node *root2) {
     if (!root1 || !root2) {
         if (root1 || root2)
@@ -137,6 +148,27 @@ bool isBalanced(Node *root) {
     int hRight = height(root->right);
 
     return abs(hLeft - hRight) <= 1 && isBalanced(root->left) && isBalanced(root->right);
+}
+
+// Efficient Version of isBalanced
+// Returns height if subtree is balanced, -1 otherwise
+int isBalancedUtil(Node *root) {
+    if (root == NULL) return 0;
+
+    int lHeight = isBalancedUtil(root->left);
+    int rHeight = isBalancedUtil(root->right);
+
+    if (lHeight == -1 || rHeight == -1 || abs(lHeight - rHeight) > 1)
+        return -1;
+    else
+        return 1 + max(lHeight, rHeight);
+}
+
+bool isBalanced(Node *root) {
+    if (isBalancedUtil(root) == -1)
+        return false;
+    else
+        return true;
 }
 
 // diameter is number of nodes in the longest path between any 2 leaf nodes in the tree

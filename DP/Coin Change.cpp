@@ -2,57 +2,69 @@
 // https://www.geeksforgeeks.org/coin-change-dp-7/
 // https://practice.geeksforgeeks.org/problems/coin-change/0
 
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <string>
 #include <algorithm>
 #include <climits>
+#include <deque>
+#include <iostream>
+#include <string>
+#include <vector>
 
-#define LN cout<<__LINE__<<endl
+#define LN cout << __LINE__ << endl
 
 using namespace std;
 
-int t, sum, numOfCoins;
-vector<int> coins;
+void coinChange(vector<int> &coins, int k) {
+    int n = coins.size();
+    vector<int> dp(k + 1, 0);
 
-void coinChange() {
-    // sum+1 coz we consider the case when sum is 0 
-    int dp[sum+1][numOfCoins];
-    
-    int jthCoinIncluded, jthCoinNotIncluded;
-    
-    for(int i = 0; i<numOfCoins; i++) {
-        dp[0][i] = 1; // there is only one way to make 0 
-                      // no matter how many coins we use
-    }
-    
-    for(int i = 1; i<sum+1; i++) {
-        for(int j = 0; j<numOfCoins; j++) {
-            // i is the sum and j is the no of coins used
-            jthCoinIncluded = i-coins[j] >= 0 ? dp[i-coins[j]][j] : 0;
-            jthCoinNotIncluded = j>=1 ? dp[i][j-1] : 0;
-            // if j is 0, 0 ways
-            dp[i][j] = jthCoinIncluded + jthCoinNotIncluded;
+    dp[0] = 1;  // only one way to make zero sum
+
+    for (int c = 0; c < n; c++) {                    // iterate over all coins
+        for (int sum = coins[c]; sum <= k; sum++) {  // the coin can be used in sums >= it
+            dp[sum] += dp[sum - coins[c]];
         }
     }
-    
-    cout<<dp[sum][numOfCoins-1]<<endl;
+
+    cout << dp[sum] << endl;
+}
+
+// less efficient
+void coinChange(vector<int> &coins, int k) {
+    int n = coins.size();
+
+    // k+1 coz we consider the case when sum is 0
+    vector<vector<int>> dp(k + 1, vector<int>(n));
+
+    for (int i = 0; i < n; i++) {
+        dp[0][i] = 1;  // there is only one way to make 0, no matter how many coins we use
+    }
+
+    for (int sum = 1; sum <= k; sum++) {
+        for (int c = 0; c < n; c++) {
+            // sum is the sum and c is the no of coins used
+            int cthCoinIncluded = sum - coins[c] >= 0 ? dp[sum - coins[c]][c] : 0;
+            int cthCoinNotIncluded = c >= 1 ? dp[sum][c - 1] : 0;
+            // if c is 0, 0 ways
+            dp[sum][c] = cthCoinIncluded + cthCoinNotIncluded;
+        }
+    }
+
+    cout << dp[k][n - 1] << endl;
 }
 
 int main() {
-	
-	cin>>t;
-	while(t--) {
-	    cin>>numOfCoins;
-	    coins.resize(numOfCoins);
-	    for(int i = 0; i<numOfCoins; i++) {
-	        cin>>coins[i];
-	    }
-	    cin>>sum;
-	    
-	    coinChange();
-	}
-	
-	return 0;
+    int t, k, n;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        vector<int> coins;
+        for (int i = 0; i < n; i++) {
+            cin >> coins[i];
+        }
+        cin >> k;
+
+        coinChange(coins, k);
+    }
+
+    return 0;
 }

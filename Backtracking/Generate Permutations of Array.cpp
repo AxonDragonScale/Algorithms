@@ -11,7 +11,7 @@ void util(vector<int> &arr, int start, vector<vector<int> > &ans) {
 
     for (int i = start; i < arr.size(); i++) {
         swap(arr[start], arr[i]);
-        util(arr, start + 1, ans);
+        util(arr, start + 1, ans);  // remember its start+1 not i+1
         swap(arr[start], arr[i]);
     }
 }

@@ -64,12 +64,12 @@ int getnCr(deque<di> &nCr, int n, int r) {
 int getLeft(int n) {
     if (n == 1) return 0;
 
-    int h = log2(n);            // in cmath
-    int maxLastLevel = 1 << h;  // 2^h - max no of elements that can be present in hth level
-    int lastLevel = n - ((1 << h) - 1);
+    int h = log2(n);                     // in cmath
+    int maxLastLevel = 1 << h;           // 2^h - max no of elements that can be present in hth level
+    int lastLevel = n - ((1 << h) - 1);  // 2^h - 1 is the total number of nodes above hth level
 
     if (lastLevel >= maxLastLevel / 2) {
-        return (1 << h) - 1;
+        return (1 << h) - 1;  // left subtree is fully filled
     } else {
         return (1 << h) - 1 - (maxLastLevel / 2 - lastLevel);
     }

@@ -22,11 +22,11 @@ vector<int> Solution::solve(vector<int> &a, vector<int> &b) {
         int aIdx = e.second.first;
         int bIdx = e.second.second;
 
-        if (aIdx >= 0 && bIdx > 0 && usedSet.find({aIdx, bIdx - 1}) == usedSet.end()) {
+        if (aIdx >= 0 && bIdx - 1 >= 0 && usedSet.find({aIdx, bIdx - 1}) == usedSet.end()) {
             usedSet.insert({aIdx, bIdx - 1});
             maxHeap.push({a[aIdx] + b[bIdx - 1], {aIdx, bIdx - 1}});
         }
-        if (aIdx > 0 && bIdx >= 0 && usedSet.find({aIdx - 1, bIdx}) == usedSet.end()) {
+        if (aIdx - 1 >= 0 && bIdx >= 0 && usedSet.find({aIdx - 1, bIdx}) == usedSet.end()) {
             usedSet.insert({aIdx - 1, bIdx});
             maxHeap.push({a[aIdx - 1] + b[bIdx], {aIdx - 1, bIdx}});
         }
