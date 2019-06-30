@@ -52,6 +52,7 @@ int method1(deque<int> &arr, int k) {
     return -1;
 }
 
+// method2
 int bSearch(deque<int> &arr, int k, int l, int r) {
     while (l <= r) {
         int mid = l + (r - l) / 2;

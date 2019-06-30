@@ -25,7 +25,7 @@ void coinChange(vector<int> &coins, int k) {
         }
     }
 
-    cout << dp[sum] << endl;
+    cout << dp[k] << endl;
 }
 
 // less efficient

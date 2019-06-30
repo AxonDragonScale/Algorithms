@@ -76,6 +76,9 @@ vector<vector<string>> solveNQueens(int n) {
     return ans;
 }
 
+// we could remove the board and save ans as vector<vector<pair<int, int>>> i.e, vector of queens
+// and after getting the ans use queens pos to construct all boards
+
 int main() {
     int n;
     cin >> n;
