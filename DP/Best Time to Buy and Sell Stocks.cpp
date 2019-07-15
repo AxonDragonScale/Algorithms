@@ -35,6 +35,10 @@ int Solution::maxProfit(const vector<int> &arr) {
 
     return profit;
 }
+// Here, if we wanted to find days to buy and sell instead,
+// buy - find local minima (keep increasing i while a[i+1] <= a[i])
+// sell - find local maxima after the minima (keep increasing i while a[i+1] >= a[i])
+// then save these two and repeat for remaining. https://www.geeksforgeeks.org/stock-buy-sell/
 
 // Best Time to Buy and Sell Stocks III
 
@@ -85,7 +89,7 @@ int maxProfit(const vector<int> &prices, int k) {
 
     for (int t = 1; t <= k; t++) {
         int prevDiff = INT_MIN;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             prevDiff = max(prevDiff, dp[t - 1][i - 1] - prices[i - 1]);
             dp[t][i] = max(profit[t][i - 1], prevDiff + prices[i]);
         }

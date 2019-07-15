@@ -35,8 +35,28 @@ Node *getLoopNode(Node *head) {
     return slow;
 }
 
-// TODO
-// Detect and Remove Loop - Do this (understand all methods), its good.
+void removeLoop(Node *head) {
+    Node *slow = head, *fast = head;
+
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast) break;
+    }
+
+    if (fast == NULL || fast->next == NULL) return NULL;
+
+    slow = head;  // works on the same principle as length based method (below)
+    while (slow->next != fast->next) {
+        slow = slow->next;
+        fast = fast->next;
+    }
+
+    fast->next = NULL;
+}
+
+// Detect and Remove Loop - understand all methods, its good.
 // https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
 
 void removeTheLoop(Node *head) {

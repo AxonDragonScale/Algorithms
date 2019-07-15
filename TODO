@@ -1,3 +1,5 @@
+In problems where you make dummy nodes, remember to delete them later
+
 1. Diagonal View of a Binary Tree
 3. BST Delete
 4. LCA of Binary Tree (Path implementation + Parent pointer implementation)
@@ -32,7 +34,6 @@
 37. Fraction to Decimal string (Hashing)
 38. Heap implementation
 39. Populate Next Pointers in Tree
-40. Counting Sort
 41. Seats (Greedy - InterviewBit)
 42. https://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/
 43. Rod Cutting I and II
@@ -42,7 +43,10 @@
 47. KMP
 50. Bidirectional Search (Simultaneous BFS from 2 nodes till collision)
 51. Find order of tasks/project/courses given their dependencies
+52. External Sort
+53. Quick Select (like quicksort)
 
+IMP. Flood Fill Algo
 IMP. Word Ladder I and II   
 IMP. Number of BSTs of Size n with Height h
 IMP. Scramble String
@@ -59,9 +63,16 @@ IMP. Lexicographical Rank of String with duplicates
 IMP. Ways to Make Heap with n Elements
 IMP. LRU Cache
 
+Good Questions -
+https://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/
+https://www.geeksforgeeks.org/recursively-remove-adjacent-duplicates-given-string/
+https://www.geeksforgeeks.org/flattening-a-linked-list/
+https://www.geeksforgeeks.org/flattening-a-linked-list/
+https://www.geeksforgeeks.org/minimum-time-required-so-that-all-oranges-become-rotten/
+
 Done. Bottom View of a Binary Tree
 Done. Job sequencing using Disjoint set
 Done. Minimum Vertex Cover in a Tree
 Done. All O(1) operations array
 Done. Given a sorted array, count the number of triangles that can be made using any 3 elements in the array as sides. 
-Done. Bipartite Graph check
+Done. Bipartite Graph check     

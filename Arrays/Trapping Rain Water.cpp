@@ -21,7 +21,8 @@ using namespace std;
 
 // method 1 (better)
 // At each point we want to know if maxLeft is greater or maxRight as water = min(maxLeft, maxRight) - height[i].
-// If arr[l] < arr[r] then maxRight is sure to be greater than arr[l], now if maxLeft is more than arr[l] then water is trapped.
+// If arr[l] < arr[r] then maxRight is sure to be greater than arr[l], now if maxLeft is more than arr[l] then water is
+// trapped.
 int waterTrapped(const vector<int> &arr) {
     int n = arr.size();
 
@@ -30,14 +31,14 @@ int waterTrapped(const vector<int> &arr) {
     int l = 0, r = n - 1;
     while (l <= r) {
         if (arr[l] <= arr[r]) {
-            if (arr[l] >= maxLeft)
-                maxLeft = arr[l];  // = is IMP
+            if (arr[l] >= maxLeft)  // = is IMP
+                maxLeft = arr[l];
             else
                 water += maxLeft - arr[l];
             l++;
         } else {
-            if (arr[r] >= maxRight)
-                maxRight = arr[r];  // = is IMP
+            if (arr[r] >= maxRight)  // = is IMP
+                maxRight = arr[r];
             else
                 water += maxRight - arr[r];
             r--;

@@ -18,3 +18,5 @@ ListNode* Solution::reverseList(ListNode* l, int k) {
     if (next) l->next = reverseList(next, k);  // l is now the last node of the group
     return prev;
 }
+
+// https://www.geeksforgeeks.org/reverse-linked-list-groups-given-size-set-2/ -> TODO (using stack)

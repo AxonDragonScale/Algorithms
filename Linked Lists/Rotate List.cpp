@@ -1,8 +1,10 @@
+// https://www.geeksforgeeks.org/rotate-a-linked-list/ (Anti-Clockwise)
 // https://www.interviewbit.com/problems/rotate-list/
 
 // Given a list, rotate the list to the right by k places, where k is non-negative. For example:
-// Given 1->2->3->4->5->NULL and k = 2, return 4->5->1->2->3->NULL.
+// Given 1->2->3->4->5->NULL and k = 2, return 4->5->1->2->3->NULL. (Clockwise)
 
+// This is clockwise
 ListNode* Solution::rotateRight(ListNode* l, int k) {
     int len = 0;
     ListNode* temp = l;
