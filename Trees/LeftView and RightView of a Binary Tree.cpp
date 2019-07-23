@@ -1,3 +1,7 @@
+// https://www.geeksforgeeks.org/print-left-view-binary-tree/
+
+// https://www.geeksforgeeks.org/print-right-view-binary-tree-2/
+// https://www.geeksforgeeks.org/right-view-binary-tree-using-queue/ -> Nice idea, see
 
 #include <algorithm>
 #include <climits>
@@ -26,6 +30,7 @@ struct Node {
         this->right = NULL;
     }
 };
+
 // We can also do this by -
 // save (level, node) pairs in the queue and keep a nextLevelToPrint
 // when level == nextLevelToPrint (it will be at the first node of that level)
@@ -66,6 +71,7 @@ void leftView(Node *root) {
     cout << endl;
 }
 
+// Method 2
 // can be done using DFS as well, like this
 void leftViewUtil(Node *root, int h, int &minH) {
     if (root == NULL) {
@@ -87,3 +93,5 @@ void leftView(Node *root) {
     leftViewUtil(root, 0, minH);
     cout << endl;
 }
+
+// We can also use the same method for right by visiting the right child first instead of left child

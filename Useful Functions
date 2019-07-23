@@ -22,3 +22,5 @@ to_string(int val)  ->  convert int to string
 10. string(size, char) -> make a string of 'char' repeated size times
 
 11. vectors can be compared (lexicographic comparison - for ex. v1 < v2 will give true if v1 is lexicographically smaller)
+
+12. stable_sort(arr.begin(), arr.end(), comp);  // comp is optional

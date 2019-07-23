@@ -9,34 +9,34 @@
 // This same concept can also be used to find the minimum number of swaps needed to convert
 // a binary tree into a BST, just take the inOrder of the binary tree in an array and do this
 
-int minSwaps(int arr[], int N){
-    vector< pair<int,int> > arrPos(N);
-    for(int i = 0; i<N; i++) {
+int minSwaps(int arr[], int n) {
+    vector<pair<int, int> > arrPos(n);
+    for (int i = 0; i < n; i++) {
         arrPos[i].first = arr[i];
         arrPos[i].second = i;
     }
-    
+
     sort(arrPos.begin(), arrPos.end());
-    
+
     int j, ans = 0, cycleLen;
-    vector<bool> visited(N, false);
-    for(int i = 0; i<N; i++) {
-        if(visited[i] || arrPos[i].second == i) {
+    vector<bool> visited(n, false);
+    for (int i = 0; i < n; i++) {
+        if (visited[i] || arrPos[i].second == i) {
             // if i has already been visited or arr[i] was already in its correct
             // position and didn't need to be swapped
             continue;
-        } 
+        }
 
         cycleLen = 0;
         j = i;
-        while(!visited[j]) {
+        while (!visited[j]) {
             visited[j] = true;
             j = arrPos[j].second;
             cycleLen++;
         }
-        
-        ans += cycleLen-1;
+
+        ans += cycleLen - 1;
     }
-    
+
     return ans;
 }

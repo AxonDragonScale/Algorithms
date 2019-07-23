@@ -28,21 +28,18 @@ using di = deque<int>;
 using lli = long long int;
 
 int main() {
-    int e, n, u, v, w;
-    cin >> n;
+    int E, V, u, v, w;
+    cin >> V >> E;
 
-    deque<iPair> *adj = new deque<iPair>[n];  // first is weight and second is vertex
-    // need to keep weight as first in pair because we need priority queue to sort according to weights
-
-    cin >> e;
-    for (int i = 0; i < e; i++) {
+    deque<iPair> *adj = new deque<iPair>[V];  // first is weight and second is vertex
+    for (int i = 0; i < E; i++) {
         cin >> u >> v >> w;
         adj[u].push_back(make_pair(w, v));
         adj[v].push_back(make_pair(w, u));
     }
 
-    deque<int> dist(n, INT_MAX);
-    deque<bool> visited(n, false);
+    deque<int> dist(V, INT_MAX);
+    deque<bool> visited(V, false);
     priority_queue<iPair, deque<iPair>, greater<iPair> > minHeap;
     // stores dist from src and vertex
 
@@ -66,7 +63,7 @@ int main() {
     }
 
     cout << "Distances from vertex " << 0 << endl;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < V; i++) {
         cout << "Vertex " << i << " has distance " << dist[i] << endl;
     }
 

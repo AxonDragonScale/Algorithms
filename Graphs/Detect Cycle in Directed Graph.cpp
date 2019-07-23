@@ -25,21 +25,18 @@ using di = deque<int>;
 using lli = long long int;
 
 bool isCyclicUtil(deque<int> *g, int cur, vector<bool> &visited, vector<bool> &onPath) {
-    if (!visited[cur]) {
-        visited[cur] = true;
-        onPath[cur] = true;
+    visited[cur] = true;
+    onPath[cur] = true;
 
-        for (int i : g[cur]) {
-            if (!visited[i] && isCyclicUtil(g, i, visited, onPath)) {
-                return true;
-            } else if (onPath[i]) {
-                return true;
-            }
+    for (int i : g[cur]) {
+        if (!visited[i] && isCyclicUtil(g, i, visited, onPath)) {
+            return true;
+        } else if (onPath[i]) {
+            return true;
         }
-
-        onPath[cur] = false;
     }
 
+    onPath[cur] = false;
     return false;
 }
 

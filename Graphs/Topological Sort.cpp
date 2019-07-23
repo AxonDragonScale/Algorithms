@@ -28,6 +28,8 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
+// Push the vertex in the stack only after all the adjacent vertices have already been pushed.
+// So, this is just dfs but we push to stack at the end of the function
 void topologicalSort(int u, deque<int> *adj, deque<bool> &visited, deque<int> &s) {
     visited[u] = true;
 
@@ -41,29 +43,67 @@ void topologicalSort(int u, deque<int> *adj, deque<bool> &visited, deque<int> &s
 }
 
 int main() {
-    int n, e, u, v;
+    int V, E, u, v;
 
-    cin >> n >> e;
-    deque<int> *adj = new deque<int>[n];
-    for (int i = 0; i < e; i++) {
+    cin >> V >> E;
+    deque<int> *adj = new deque<int>[V];
+    for (int i = 0; i < E; i++) {
         cin >> u >> v;
         adj[u].push_back(v);
     }
 
-    deque<bool> visited(n, false);
+    deque<bool> visited(V, false);
     deque<int> s;  // stack
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < V; i++) {
         if (!visited[i]) {
             topologicalSort(i, adj, visited, s);
         }
     }
 
-    // print the result
+    // print the stack
     while (!s.empty()) {
         cout << s.back() << " ";
         s.pop_back();
     }
+    cout << endl;
+
+    return 0;
+}
+
+// https://www.geeksforgeeks.org/topological-sorting-indegree-based-solution/
+
+int main() {
+    int V, E, u, v;
+
+    cin >> V >> E;
+    deque<int> *adj = new deque<int>[V];
+    deque<int> inDegree(V, 0);
+    for (int i = 0; i < E; i++) {
+        cin >> u >> v;
+        adj[u].push_back(v);
+        inDegree[v]++;
+    }
+
+    deque<int> q;
+    for (int i = 0; i < V; i++) {
+        if (inDegree[i] == 0) q.push_back(i);
+    }
+
+    deque<int> ans;
+    while (!q.empty()) {
+        u = q.front();
+        q.pop_front();
+
+        ans.push_back(u);
+
+        for (int v : adj[u]) {
+            inDegree[v]--;
+            if (inDegree[v] == 0) q.push_back(v);
+        }
+    }
+
+    for (int i : ans) cout << i << " ";
     cout << endl;
 
     return 0;

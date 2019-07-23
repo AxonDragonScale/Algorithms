@@ -1,4 +1,5 @@
 // https://www.interviewbit.com/problems/window-string/
+// https://www.geeksforgeeks.org/find-the-smallest-window-in-a-string-containing-all-characters-of-another-string/
 
 string Solution::minWindow(string s, string t) {
     unordered_map<char, int> tChars;

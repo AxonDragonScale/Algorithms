@@ -24,8 +24,8 @@ using lli = long long int;
 void BFS(deque<int> *adj, deque<bool> &visited, int v) {
     deque<int> queue;
 
-    visited[v] = true;
     queue.push_back(v);
+    visited[v] = true;
 
     while (!queue.empty()) {
         v = queue.front();
