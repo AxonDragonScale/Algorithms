@@ -2,6 +2,15 @@
 // https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence/0
 // https://www.interviewbit.com/problems/longest-increasing-subsequence/
 
+// https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
+// https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n-simple-implementation/
+
+// Problems based on this approach -
+// https://www.geeksforgeeks.org/maximum-length-chain-of-pairs-dp-20/
+// https://www.geeksforgeeks.org/print-maximum-length-chain-of-pairs/
+// https://www.geeksforgeeks.org/maximum-sum-increasing-subsequence-dp-14/
+// https://www.geeksforgeeks.org/maximum-product-increasing-subsequence/
+
 #include <algorithm>
 #include <climits>
 #include <cmath>
@@ -66,6 +75,31 @@ int LIS(vector<int> &arr, int n) {
 
 //     return max;
 // }
+
+// nlogn
+int LIS(vi &arr) {
+    int n = arr.size();
+    if (n == 0) return 0;
+
+    vi tail(n, 0);
+    tail[0] = arr[0];
+    int len = 1;  // next empty in tail
+
+    for (int i = 1; i < n; i++) {
+        if (tail[len - 1] < arr[i]) {
+            tail[len++] = arr[i];
+        } else {
+            auto it = find(tail.begin(), tail.begin() + len, arr[i]);
+            if (it != tail.begin() + len) continue;  // skip if already present
+
+            it = upper_bound(arr.begin(), arr.begin() + len, arr[i]);
+            *it = arr[i];
+        }
+    }
+
+    // tail may not have LIS but len will be correct
+    return len;
+}
 
 int main() {
     int t, n;

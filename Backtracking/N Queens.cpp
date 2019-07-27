@@ -25,6 +25,7 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
+// basic iteration
 void iterateOverBoard(deque<di> &board, int r, int c) {
     int n = board.size();
     if (c == n) {

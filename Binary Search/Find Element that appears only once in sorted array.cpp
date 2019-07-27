@@ -1,4 +1,7 @@
-// https://www.geeksforgeeks.org/given-an-array-arr-find-the-maximum-j-i-such-that-arrj-arri/
+// https://www.geeksforgeeks.org/find-the-element-that-appears-once-in-a-sorted-array/
+
+// Given a sorted array in which all elements appear twice (one after one) and one element appears only once. Find that
+// element in O(log n) complexity.
 
 #include <algorithm>
 #include <climits>
@@ -34,26 +37,24 @@ int main() {
         cin >> arr[i];
     }
 
-    vi lMin(n), rMax(n);
+    int l = 0, r = n - 1;
+    while (l < r) {
+        int mid = l + (r - l) / 2;
 
-    lMin[0] = arr[0];
-    for (int i = 1; i < n; i++) lMin[i] = min(arr[i], lMin[i - 1]);
-    // lMin[i] is the smallest element till i
-
-    rMax[n - 1] = arr[n - 1];
-    for (int i = n - 2; i >= 0; i--) rMax[i] = max(arr[i], rMax[i - 1]);
-    // rMax[i] is the largest element from i
-
-    int i = 0, j = 0;
-    int maxDiff = 0;
-    while (i < n && j < n) {
-        if (rMax[j] > lMin[i]) {
-            maxDiff = max(maxDiff, j - i);
-            j++;
+        if (mid % 2 == 0) {
+            if (arr[mid] == arr[mid + 1])
+                l = mid + 2;
+            else
+                r = mid;
         } else {
-            i++;
+            if (arr[mid - 1] == arr[mid])
+                l = mid + 1;
+            else
+                r = mid - 1;
         }
     }
+
+    cout << arr[l] << endl;
 
     return 0;
 }

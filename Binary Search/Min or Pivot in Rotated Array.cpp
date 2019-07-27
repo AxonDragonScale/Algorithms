@@ -24,14 +24,16 @@ using lli = long long int;
 // better
 int findPivot(deque<int> &arr) {
     int n = arr.size();
-    int l = 0, r = arr.size() - 1;
+    int l = 0, r = n - 1;
 
-    if (arr[0] < arr[r]) return -1;  // Not rotated
+    if (arr[0] < arr[r]) return 0;  // Not rotated
 
     while (l <= r) {
         int mid = l + (r - l) / 2;
 
-        if (arr[mid - 1] < arr[mid] && arr[mid] > arr[mid + 1]) {
+        if (arr[mid - 1] > arr[mid] && arr[mid] < arr[mid + 1]) {
+            return mid;
+        } else if (arr[mid - 1] < arr[mid] && arr[mid] > arr[mid + 1]) {
             return mid + 1;
         } else if (arr[l] < arr[mid]) {  // left part is sorted, go right
             l = mid + 1;
@@ -67,7 +69,7 @@ int main() {
         cin >> arr[i];
     }
 
-    cout << findPivot(arr) << endl;  // Doesn't give min if not rotated
+    cout << findPivot(arr) << endl;  // index of pivot
     findMin(arr);
 
     return 0;

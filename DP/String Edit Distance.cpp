@@ -9,6 +9,7 @@
 
 using namespace std;
 
+// v1
 int minEditDistance(string a, string b) {
     int aLen = a.size();
     int bLen = b.size();
@@ -40,6 +41,7 @@ int minEditDistance(string a, string b) {
     return dp[aLen][bLen];
 }
 
+// v2
 int t, n1, n2;
 string s1, s2;
 int dp[100][100];

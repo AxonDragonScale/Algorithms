@@ -1,7 +1,7 @@
 // https://www.interviewbit.com/problems/valid-ip-addresses/
+// https://practice.geeksforgeeks.org/problems/generate-ip-addresses/1
 
 // Both methods are same just framed differently
-
 bool isValid(string s) {
     int val = stoi(s);
     if (val < 0 || val > 255 || (s[0] == '0' && s.size() > 1)) {

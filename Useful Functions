@@ -24,3 +24,9 @@ to_string(int val)  ->  convert int to string
 11. vectors can be compared (lexicographic comparison - for ex. v1 < v2 will give true if v1 is lexicographically smaller)
 
 12. stable_sort(arr.begin(), arr.end(), comp);  // comp is optional
+
+13. find(arr.begin(), arr.end(), valToFind); // returns an iterator to the element if found, arr.end() otherwise.
+
+14. accumulate(arr.begin(), arr.end(), 0); // return sum of whole array and init value (0 here)
+    // we can also have minus<int> or a custom binary operation as optional argument at end like accumulate(arr.begin(), arr.end(), 0, bOp)
+    // custom operation will be like we do custom comparator for sort or heap

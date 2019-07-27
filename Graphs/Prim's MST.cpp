@@ -41,7 +41,7 @@ int main() {
     deque<int> parent(n, -1);
     deque<int> cost(n, INT_MAX);
 
-    priority_queue<iPair, deque<iPair>, greater<iPair> > minHeap;
+    priority_queue<iPair, deque<iPair>, greater<iPair> > minHeap;  // {weight, node}
     int mst = 0;
 
     int src = 0;

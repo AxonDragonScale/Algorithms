@@ -8,3 +8,12 @@
    (has extra not just what title says)
 
 7. To check if only 1 bit is set to 1 in the number use -> n & (n-1) == 0
+
+8. n is a power of 2 if (n & n-1) is 0
+
+https://www.geeksforgeeks.org/toggle-bits-given-range/
+https://www.geeksforgeeks.org/rotate-bits-of-an-integer/
+https://www.geeksforgeeks.org/swap-all-odd-and-even-bits/
+https://www.geeksforgeeks.org/count-set-bits-in-an-integer/ -> see last method
+https://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/
+https://www.geeksforgeeks.org/length-longest-consecutive-1s-binary-representation/

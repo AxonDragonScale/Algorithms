@@ -75,9 +75,9 @@ int main() {
     // Don't add edge if it makes a loop (isConnected)
     for (int i = 0; i < e; i++) {
         if (!isConnected(components, edges[i].u, edges[i].v)) {
+            connect(components, edges[i].u, edges[i].v);
             mst += edges[i].w;
             mstEdges.push_back(edges[i]);
-            connect(components, edges[i].u, edges[i].v);
         }
     }
 

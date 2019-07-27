@@ -1,4 +1,5 @@
 // https://www.interviewbit.com/problems/majority-element/
+// https://www.geeksforgeeks.org/majority-element/
 
 // Given an array of size n, find the majority element. The majority element is the element that appears more than
 // floor(n/2) times. You may assume that the array is non-empty and the majority element always exist in the array.
@@ -28,6 +29,7 @@ using vi = vector<int>;
 using di = deque<int>;
 using lli = long long int;
 
+// Only works if majority element exists. Otherwise we need to check if count of arr[mIndex] is > n/2 after this
 int majorityElement(const vector<int> &arr) {
     int n = arr.size();
 

@@ -33,7 +33,7 @@ void coinChange(vector<int> &coins, int k) {
     int n = coins.size();
 
     // k+1 coz we consider the case when sum is 0
-    vector<vector<int>> dp(k + 1, vector<int>(n));
+    vector<vector<int>> dp(k + 1, vector<int>(n));  // dp[sum][c] is num of ways to make sum using only coins[0..c]
 
     for (int i = 0; i < n; i++) {
         dp[0][i] = 1;  // there is only one way to make 0, no matter how many coins we use
