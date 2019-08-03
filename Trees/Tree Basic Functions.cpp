@@ -183,6 +183,25 @@ int diameter(Node *root) {
     return max(1 + hLeft + hRight, max(diameter(root->left), diameter(root->right)));
 }
 
+// A complete tree has all levels full except the last.
+bool isCompleteUtil(Node *root, int idx, int &numNodes) {
+    if (root == NULL) return true;
+    if (idx >= numNodes) return false;
+
+    return isCompleteUtil(root, 2 * idx + 1, numNodes) && isCompleteUtil(root, 2 * idx + 2, numNodes);
+}
+
+int countNodes(Node *root) {
+    if (root == NULL) return 0;
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+
+bool isComplete(Node *root) {
+    int idx = 0;
+    int numNodes = countNodes(root);
+    return isCompleteUtil(root, idx, numNodes);
+}
+
 int main() {
     Node *root = new Node(1);
     root->left = new Node(2);

@@ -21,6 +21,7 @@ int Solution::longestValidParentheses(string s) {
         ans = n;
     else
         ans = stack.front().second;
+
     for (int i = 1; i < stack.size(); i++) {
         ans = max(ans, stack[i].second - stack[i - 1].second - 1);
     }

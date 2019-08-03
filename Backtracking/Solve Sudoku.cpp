@@ -11,10 +11,11 @@ bool isValid(vector<vector<char>> &mat, char val, int r, int c) {
         if (c >= i - 2 && c <= i) c = i - 1;
     }
 
-    if (mat[r - 1][c - 1] == val || mat[r - 1][c] == val || mat[r - 1][c + 1] == val || mat[r][c - 1] == val ||
-        mat[r][c] == val || mat[r][c + 1] == val || mat[r + 1][c - 1] == val || mat[r + 1][c] == val ||
-        mat[r + 1][c + 1] == val)
-        return false;  // same val shouldn't be present in the same sub-matrix
+    for (int i = -1; i <= 1; i++) {
+        for (int j = -1; j <= 1; j++) {
+            if (mat[r + i][c + j] == val) return false;  // same val shouldn't be present in the same sub-matrix
+        }
+    }
 
     return true;
 }

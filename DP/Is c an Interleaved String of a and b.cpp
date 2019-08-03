@@ -19,11 +19,7 @@ int util(vector<vector<vi>> &dp, string a, string b, string c, int aLen, int bLe
         if (util(dp, a, b, c, aLen, bLen - 1, cLen - 1)) return dp[aLen][bLen][cLen] = 1;
     }
 
-    int ans = 0;
-    if (util(dp, a, b, c, aLen - 1, bLen, cLen) || util(dp, a, b, c, aLen, bLen - 1, cLen)) {
-        ans = 1;
-    }
-    return dp[aLen][bLen][cLen] = ans;
+    return dp[aLen][bLen][cLen] = 0;
 }
 
 int Solution::isInterleave(string a, string b, string c) {

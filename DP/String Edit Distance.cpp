@@ -1,6 +1,8 @@
 // https://www.geeksforgeeks.org/edit-distance-dp-5/
 // https://practice.geeksforgeeks.org/problems/edit-distance/0
 
+// Given two words A and B, find the minimum number of steps required to convert A to B
+
 #include <algorithm>
 #include <climits>
 #include <deque>

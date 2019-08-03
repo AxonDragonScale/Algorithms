@@ -91,9 +91,6 @@ vector<vector<int>> Solution::subsets(vector<int> &arr) {
 
 void util(vector<vector<int>> &ans, vector<int> &cur, vector<int> &arr, int start) {
     ans.push_back(cur);
-    if (start == arr.size()) {
-        return;
-    }
 
     for (int i = start; i < arr.size(); i++) {
         cur.push_back(arr[i]);

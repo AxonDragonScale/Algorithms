@@ -1,6 +1,24 @@
 // https://www.interviewbit.com/problems/single-number-ii/
 // https://www.geeksforgeeks.org/find-the-element-that-appears-once/
 
+int getSingle(int arr[], int n) {
+    int result = 0;
+
+    for (int i = 0; i < 32; i++) {  // Iterate through every bit
+
+        int count = 0;  // Find count of set bits at ith position in all array elements
+        int x = (1 << i);
+        for (int j = 0; j < n; j++) {
+            if (arr[j] & x) count++;
+        }
+
+        // The bits with count not multiple of 3, are the bits of element with single occurrence.
+        if (count % 3 != 0) result |= x;
+    }
+
+    return result;
+}
+
 int Solution::singleNumber(const vector<int> &arr) {
     int n = arr.size();
 

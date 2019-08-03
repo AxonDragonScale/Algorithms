@@ -32,7 +32,7 @@ void inOrder(Node *root, Node **head_ref) {
 
         if (*head_ref == NULL) {
             prev = NULL;  // ust for multiple test cases
-            *head = root;
+            *head_ref = root;
         } else {
             root->left = prev;
             prev->right = root;

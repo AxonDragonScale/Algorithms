@@ -30,3 +30,5 @@ to_string(int val)  ->  convert int to string
 14. accumulate(arr.begin(), arr.end(), 0); // return sum of whole array and init value (0 here)
     // we can also have minus<int> or a custom binary operation as optional argument at end like accumulate(arr.begin(), arr.end(), 0, bOp)
     // custom operation will be like we do custom comparator for sort or heap
+
+15. next(it, x) -> returns iterator to it + x.     prev(it, x) -> returns iterator to it - x; thest are in <iterator>

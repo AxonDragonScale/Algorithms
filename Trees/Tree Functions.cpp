@@ -39,7 +39,7 @@ void levelOrderTraversal(Node *root) {
         if (cur) {
             cout << cur->data << " ";
             if (cur->left) q.push(cur->left);
-            if (cur->right != NULL) q.push(cur->right);
+            if (cur->right) q.push(cur->right);
         } else {  // cur is NULL, new Level after this
             cout << endl;
             if (!q.empty()) q.push(NULL);  // Dont push a NULL after the last level NULL
