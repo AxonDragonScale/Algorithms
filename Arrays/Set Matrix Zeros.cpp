@@ -24,7 +24,7 @@ void Solution::setZeroes(vector<vector<int> > &A) {
         }
     }
 
-    // find zeros in matrix other than 1t row and col
+    // find zeros in matrix other than 1st row and col
     // mark that zero in 1st row and col (we can change it cause it will be zero anyway,
     // since we found a zero in that row or col)
     for (int i = 1; i < rows; i++) {
