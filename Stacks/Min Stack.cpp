@@ -38,7 +38,7 @@ class MinStack {
         if (x >= min) {
             s.push(x);
         } else {
-            s.push(x - min);
+            s.push(x - min); // negative
             min = x;
         }
     }
